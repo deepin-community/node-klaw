@@ -1,0 +1,16 @@
+Description: fix for Node.js ≥ 12
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: no
+Last-Update: 2020-01-22
+
+--- a/tests/walk_path-sorter.test.js
++++ b/tests/walk_path-sorter.test.js
+@@ -27,7 +27,7 @@
+       })
+       expected.unshift(testDir)
+ 
+-      t.same(items, expected)
++      t.same(items.sort(), expected.sort())
+       t.end()
+     })
+ })
