@@ -1,3 +1,22 @@
+node-klaw (4.0.1-2) unstable; urgency=medium
+
+  * Team upload
+  * Replace fs.rm by rimraf to be compatible with nodejs 12
+  * Drop useless versions constraints
+  * Back to unstable
+
+ -- Yadd <yadd@debian.org>  Thu, 24 Feb 2022 11:18:55 +0100
+
+node-klaw (4.0.1-1) experimental; urgency=medium
+
+  * Team upload
+  * Fix filenamemangle
+  * New upstream version 4.0.1
+  * Drop test dependency to node-mkdirp
+  * Add test dependency to nodejs ≥ 14
+
+ -- Yadd <yadd@debian.org>  Tue, 04 Jan 2022 12:33:03 +0100
+
 node-klaw (3.0.0-5) unstable; urgency=medium
 
   * Fix d/watch.

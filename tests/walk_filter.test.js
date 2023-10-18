@@ -1,30 +1,29 @@
-var fs = require('fs')
-var mkdirp = require('mkdirp')
-var path = require('path')
-var test = require('./_test')
-var klaw = require('../')
-var fixtures = require('./fixtures')
+const fs = require('fs')
+const path = require('path')
+const test = require('./_test')
+const klaw = require('../')
+const fixtures = require('./fixtures')
 
 test('should not fire event on filtered items', function (t, testDir) {
   fixtures.forEach(function (f) {
     f = path.join(testDir, f)
-    var dir = path.dirname(f)
-    mkdirp.sync(dir)
+    const dir = path.dirname(f)
+    fs.mkdirSync(dir, { recursive: true })
     fs.writeFileSync(f, path.basename(f, path.extname(f)))
   })
 
-  var items = []
-  var filter = function (filepath) {
+  const items = []
+  const filter = function (filepath) {
     return path.basename(filepath) !== 'a'
   }
 
-  klaw(testDir, {filter: filter})
+  klaw(testDir, { filter: filter })
     .on('data', function (item) {
       if (fs.lstatSync(item.path).isFile()) items.push(item.path)
     })
     .on('error', t.end)
     .on('end', function () {
-      var expected = ['c', 'b', 'a']
+      let expected = ['c', 'b', 'a']
       expected = expected.map(function (item) {
         return path.join(testDir, item)
       })

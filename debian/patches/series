@@ -1,2 +1,2 @@
 fix-test-for-node-12.patch
-fix-for-mkdirp-1.diff
+use-rimraf.patch
