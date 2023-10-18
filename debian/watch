@@ -1,5 +1,5 @@
 version=4
 opts=\
 dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-klaw-$1.tar.gz/ \
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-klaw-$1/ \
  https://github.com/jprichardson/node-klaw/tags .*/v?([\d\.]+).tar.gz
